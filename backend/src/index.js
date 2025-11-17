@@ -8,11 +8,15 @@ import cors from "cors";
 import {app, server} from "./lib/socket.io.js"
 
 //for deplyoment
-import path, { dirname } from "path";
+import path from "path";
 
 dotenv.config();
 const Port = process.env.PORT || 5001;
 const __dirname = path.resolve();
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  "http://localhost:5173"
+];
 
 connectDB();
 app.use(express.json({
@@ -21,7 +25,7 @@ app.use(express.json({
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,
     credentials: true,
   })
 );

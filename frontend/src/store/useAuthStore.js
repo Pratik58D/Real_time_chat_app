@@ -64,7 +64,7 @@ export const useAuthStore = create((set, get) => ({
       // Call disconnectSocket before setting authUser to null
       get().disconnectSocket();
       set({ authUser: null });
-      console.log(authUser);
+      // console.log(authUser);
       toast.success("Logged out sucessfully");
 
     } catch (error) {
