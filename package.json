@@ -2,10 +2,9 @@
   "name": "real-time-chat-app",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "install": "npm install --prefix backend && npm install --prefix frontend --include=dev",
-    "build": "npm run build --prefix frontend",
-    "start": "npm run start --prefix backend"
+  "scripts": { 
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd backend && npm install && npm start"
   },
   "keywords": [],
   "author": "",
