@@ -39,10 +39,10 @@ app.use("/api/message", messageRoutes);
 //for prodution
 if(process.env.NODE_ENV === "production"){
   console.log("this is running...")
-  app.use(express.static(path.join(__dirname , "../frontend/dist")));
+  app.use(express.static(path.join(__dirname , "../../frontend/dist")));
 
   app.get("*",(req,res)=>{
-    res.sendFile(path.join(__dirname,"../frontend","dist","index.html"))
+    res.sendFile(path.join(__dirname,"../../frontend","dist","index.html"))
   })
 }
 
