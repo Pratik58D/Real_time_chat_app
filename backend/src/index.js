@@ -9,11 +9,13 @@ import {app, server} from "./lib/socket.io.js"
 
 //for deplyoment
 import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 const Port = process.env.PORT || 5001;
 
-const __dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 console.log(__dirname)
 
 const allowedOrigins = [
@@ -41,7 +43,7 @@ if(process.env.NODE_ENV === "production"){
   console.log("this is running...")
   app.use(express.static(path.join(__dirname , "../../frontend/dist")));
 
-  app.get("*",(req,res)=>{
+  app.get("*",(_req,res)=>{
     res.sendFile(path.join(__dirname,"../../frontend","dist","index.html"))
   })
 }
