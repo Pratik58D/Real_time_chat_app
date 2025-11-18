@@ -12,7 +12,10 @@ import path from "path";
 
 dotenv.config();
 const Port = process.env.PORT || 5001;
+
 const __dirname = path.resolve();
+console.log(__dirname)
+
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   "http://localhost:5173"
@@ -35,6 +38,7 @@ app.use("/api/message", messageRoutes);
 
 //for prodution
 if(process.env.NODE_ENV === "production"){
+  console.log("this is running...")
   app.use(express.static(path.join(__dirname , "../frontend/dist")));
 
   app.get("*",(req,res)=>{

@@ -5,7 +5,7 @@
   "scripts": { 
     "install": "echo skipping root install",
     "build": "cd frontend && npm install && npm run build",
-    "start": "node backend/index.js"
+    "start": "node backend/src/index.js"
   },
   "keywords": [],
   "author": "",
